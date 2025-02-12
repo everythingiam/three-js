@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Model Viewer</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.150.1/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <main>
+
+    <section id="controls">
+      <header>
+        <h1>3D-визуализатор</h1>
+      </header>
+      
+      <fieldset>
+        <legend>Загрузка модели</legend>
+        <label for="modelFileInput">Выберите модель:</label>
+        <input type="file" id="modelFileInput" accept=".glb">
+        <button class="btn" type="button" id="uploadModelBtn">Загрузить модель</button>
+      </fieldset>
+
+      <fieldset>
+        <legend>Настройки материала</legend>
+        <label for="materialNameSelect">Материал для изменения:</label>
+        <select id="materialNameSelect"></select>
+        <label for="colorPicker">Выберите цвет:</label>
+        <input type="color" id="colorPicker">
+        <button class="btn" type="button" id="restoreColorBtn">Вернуть исходные цвета</button>
+      </fieldset>
+
+      <button class="btn" type="button" id="openModalBtn">Информация о модели</button> 
+    </section>
+
+    <section id="viewer">
+      <div id="container" aria-label="3D модель"></div>
+    </section>
+
+  </main>
+
+  <dialog id="modal">
+
+    <div class="content">
+      <button type="button" id="modalClose" aria-label="Закрыть окно">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M3 3L21 21M21 3L3 21" stroke="#F2D6C5" stroke-width="2.25257" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <article>
+        <h1>12МК-3-5</h1>
+        <p>Кран шаровой <br /> с пневмоприводом фланцевый </p>
+        <button id="blue" class="btn">Поменять материал</button>
+      </article>
+    </div>
+
+  </dialog>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+/* Кнопки */
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.btn {
+  background-color: var(--main);
+  color: black;
+  padding: 1.5rem 3rem;
+  border-radius: 0.8rem;
+  font-weight: 500;
+  transition: background-color 150ms ease-out;
+}
+
+.btn:hover {
+  background-color: var(--main-hover);
+}
+
+/* Аккордеон */
+.accordion {
+  background-color: var(--black);
+  cursor: pointer;
+  padding: 1rem;
+  width: 100%;
+  text-align: left;
+  color: var(--main);
+  font-size: 1.8rem;
+  font-weight: 500;
+  transition: 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.panel {
+  max-height: 0;
+  overflow: hidden;
+  width: 100%;
+  transition: max-height 0.2s ease-out;
+}
+svg {
+  transition: transform 0.3s ease;
+}
+
+.rotated {
+  transform: rotate(180deg); 
+}
+.panel:not(:last-of-type){
+  border-bottom: 0.1rem solid var(--gray);
+}
+
+ul.panel > li {
+  display: grid;
+  padding: 1.4rem 2.5rem;
+  width: 100%;
+  grid-template-columns: 2fr 2fr;
+}
+
+ul.panel > li:not(:last-of-type){
+  border-bottom: 0.1rem solid rgba(242, 214, 197, 0.15);
+}
+
+/* Модальное окно */
+#modal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+  margin: auto;
+  border: none;
+  border-radius: 1rem;
+}
+
+#modal.modal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#modalClose {
+  position: absolute;
+  right: 1.2rem;
+  top: 1.2rem;
+  font-size: 2.4rem;
+}
+
+::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
+}
+
+#modal.modal-visible::backdrop {
+  opacity: 1;
+}

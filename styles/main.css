@@ -1,0 +1,148 @@
+@import './ui.css';
+
+/* Основные настройки */
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+}
+
+:root {
+  --main: #dabfae;
+  --main-hover: #c8ad9c;
+  --black: #1b1918;
+  --gray: #514f4f;
+  --light-gray: #878686;
+}
+
+* {
+  font-family: 'Roboto Condensed', serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-size: 1.2rem;
+  color: var(--main);
+  background-color: var(--black);
+  overflow: hidden;
+}
+
+main {
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+  height: 100%;
+}
+
+h1{
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+p{
+  font-size: 1.8rem;
+}
+
+/* Блок управления */
+#controls {
+  width: 35%;
+  min-width: 300px;
+  background: var(--gray);
+  padding: 2rem;
+  margin: 2rem;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  overflow-y: auto;
+}
+
+#controls > header > h1 {
+  margin-bottom: 2rem;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3rem;
+  border-radius: 1rem;
+  border: 1px solid var(--main);
+  padding: 1rem;
+}
+
+legend {
+  font-size: 1.8rem;
+  color: var(--main);
+}
+
+label {
+  margin-bottom: 0.5rem;
+}
+
+input,
+select {
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  background-color: var(--gray);
+  color: var(--main);
+  min-width: 27rem;
+}
+
+/* Контент модального окна */
+#modal > .content > article {
+  width: 100%;
+  padding: 5rem 1rem 1rem;
+  background: linear-gradient(var(--black), var(--light-gray) 80%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#modal > .content > article > p {
+  text-align: center;
+}
+
+#modal > .content > article > * {
+  margin-bottom: 1.6rem;
+}
+/* Блок просмотра 3D-модели */
+#viewer {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 30rem;
+}
+
+#container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Адаптивность */
+@media (max-width: 900px) {
+  main {
+    flex-direction: column-reverse;
+  }
+
+  #controls {
+    margin: 0 auto 3rem;
+    width: 90%;
+  }
+}
+
+@media (min-width: 1400px) {
+  html {
+    font-size: 80%;
+  }
+}
